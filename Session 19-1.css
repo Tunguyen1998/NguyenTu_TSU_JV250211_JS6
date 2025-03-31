@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    
+}
+body{
+    background-color: rgba(255, 192, 203,0.3);
+}
+.form{
+    background-color: white;
+    width: 600px;
+    height: 450px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+h1{
+    text-align: center;
+    padding-top: 20px;
+}
+label{
+    margin-left: 50px;
+    line-height: 50px;
+}
+input{
+    border-radius: 1px;
+    height: 50px;
+    margin-left: 50px;
+    width: 500px ;
+}
+button{
+    background-color: rgb(193, 142, 240);
+    width: 500px;
+    height: 50px;
+    margin-left: 50px;
+    color: white;
+    margin-top: 20px;
+    border-radius: 5px;
+}
