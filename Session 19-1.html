@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Session 19-1.css">
+</head>
+<body>
+    <div class="form">
+        <h1> Register </h1>
+        <form action="./Session 19-1.html">
+            <label for="email"> Email: </label>
+            <br>
+            <input type="email" id="email" placeholder="Enter your email address" >
+            <br>
+            <label for="password"> Password: </label>
+            <br>
+            <input type="password" id="password" placeholder="Enter your password" >
+            <br>
+            <label for="confirmPassword"> Confirm Password: </label>
+            <br>
+            <input type="password" id="confirmPassword" placeholder="Enter your confirm password" >
+            <br>
+            <button type="submit">Register</button>
+
+
+        </form>
+
+    </div>
+    
+    <script>
+        
+        let form = document.querySelector(".form form");
+        
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+        let userEmail = document.getElementById("email").value.trim();
+        let userPassword = document.getElementById("password").value;
+        let userConfirmPassword = document.getElementById("confirmPassword").value;
+        
+
+        if (userEmail === "") {
+            alert("Email khong duoc bo trong !");
+            return;
+        }
+        if (userPassword === "") {
+            alert("Mat khau khong duoc bo trong !") ;
+            return;
+        }
+        if (userConfirmPassword !== userPassword) {
+            alert("Mat khau xac nhan chua trung khop !") ;
+            return;
+        }
+
+        let checkUser = JSON.parse(localStorage.getItem("userAccount"));
+        if (checkUser && checkUser.user === userEmail) {
+            alert("Email da ton tai. Moi ban nhap 1 email khac !");
+            return;
+        }
+
+        
+        alert("Dang ky tai khoan thanh cong !");
+        
+
+        let userAccount ={
+            user: userEmail,
+            password: userPassword
+        };
+
+        localStorage.setItem("userAccount", JSON.stringify(userAccount));
+
+        
+    });
+   
+        
+    </script>
+</body>
+</html>
