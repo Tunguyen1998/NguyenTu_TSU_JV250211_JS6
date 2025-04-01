@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const courses = [
+           {name: "HTML" , complete : false },
+           {name: "CSS" , complete : false },
+           {name: "Basic of JavaScript" , complete : false },
+           {name: "Node package Manager (npm)" , complete : false },
+           {name: "Git" , complete : false },
+
+        ];
+
+        function courseList() {
+            courses.forEach((course , index) => {
+            console.log(`${index + 1}. ${course.name}`);
+            console.log(`Complete : ${course.complete}`);
+            
+        })}
+        
+       
+       while (true) {       
+        let input = prompt ("Hay nhap vao 1 trong nhung chu cai sau : C / R / U / D / E .").toUpperCase();
+
+        if (input === "C"){
+            let newCourse = prompt(" Nhap vao ten khoa hoc moi:");
+            let status = prompt("Trang thai khoa hoc: 'True/False' ?");
+            courses.push({name: newCourse, complete: status});
+            courseList()
+        }
+        
+        else if (input === "R"){
+            courseList();
+            
+        }
+        else if (input === "U"){
+            let update = parseInt(prompt("Vi tri khoa hoc ban muon cap nhat la : ")) - 1;
+            if (update >= 0 && update < courses.length){
+                courses[update].name = prompt("Nhap ten khoa hoc moi :");
+                courses[update].complete = prompt("Trang thai khoa hoc: 'True/False' ?");
+                courseList();
+            }else{
+                console.log("Vi tri nhap vao khong hop le !");
+                
+            }
+
+        }else if (input === "D"){
+            let xoa = parseInt(prompt("Vi tri khoa hoc ban muon xoa la :")) -1 ;
+            if (xoa >=0 && xoa < courses.length) {
+                courses.splice(xoa,1);
+                courseList();
+            }else{
+                console.log("Vi tri nhap vao khong hop le !");
+            }
+        }else if (input === "E") {
+            alert("Cam on ban da den voi Rikkei Academy");
+            break;
+            
+        }
+        else{
+            alert("Vui long nhap chu cai hop le !");
+            
+        }
+       }
+
+    </script>
+</body>
+</html>
